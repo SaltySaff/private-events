@@ -1,10 +1,7 @@
-<% if user_signed_in? %>
-  <br><%= link_to 'Profile', user_path(current_user.id) %>
-<% end %>
-
-<h1>Events</h1>
-<% @events.each do |event| %>
-  <h2><%= event.title %></h2>
-  <p><%= event.body %></p>
-<% end %>
-
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <%= render 'feed' %>
+    </div>
+  </div>
+</section>

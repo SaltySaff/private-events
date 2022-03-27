@@ -1,0 +1,16 @@
+<div class="column is-half ">
+  <% if current_user && @user.username == current_user.username %>
+    <h2 class="title is-3">Events You're Attending</h2>
+  <% else %>
+    <h2 class="title is-3">Events <%= @user.username %> is Attending</h2>
+  <% end %>
+  <% @user.attended_events.future.each do |event| %>
+    <div class="box">
+      <strong><%= event.title %></strong>
+      <small>@<%= event.creator.username %></small><br>
+      <small><strong>When:</strong> <%= event.date %></small><br>
+      <%= event.body %>
+      <br><%= link_to "Cancel Attendance", cancel_attending_event_path(:user_id => current_user.id, :id => event.id), method: :delete, class: "button is-danger" %>
+    </div>
+  <% end %>
+</div>
