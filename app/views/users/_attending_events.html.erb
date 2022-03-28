@@ -12,7 +12,7 @@
       <small>@<%= event.creator.username %></small><br>
       <small><strong>When:</strong> <%= event.date %></small><br>
       <%= event.body %>
-      <br><%= link_to "Cancel Attendance", cancel_attending_event_path(:user_id => current_user.id, :id => event.id), method: :delete, class: "button is-danger" %>
+      <br><br><%= link_to "Cancel Attendance", cancel_attending_event_path(:user_id => current_user.id, :id => event.id), method: :delete, class: "button is-danger" %>
     </div>
   <% end %>
 </div>

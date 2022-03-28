@@ -10,7 +10,7 @@
           <strong><%= event.title %></strong><br>
       <% end %>
       <small><strong>When:</strong> <%= event.date %></small><br>
-      <%= event.body %><br>
+      <%= event.body %><br><br>
       <%= link_to "Cancel Event", event, method: :delete, class: "button is-danger", data: { confirm: "Are you sure you want to delete this event?" } %>
     </div>
   <% end %>

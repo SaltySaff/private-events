@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :events
   resources :users, :only => [:show, :index]
   resources :event_attendings
+  resources :invitations
 
   post '/users/:user_id/events/:id', to: "attending_events#create", as: "create_attending_event"
   delete '/users/:user_id/events/:id', to: "attending_events#destroy", as: "cancel_attending_event"
 
-  post 'users/:user_id/events/:id', to: "invitations#create", as: "create_invitation"
-  delete '/users/:user_id/events/:id', to: "invitations#destroy", as: "cancel_invitation"
+  post '/users/', to: "invitations#create", as: "create_invitation"
+  delete '/users/', to: "invitations#destroy", as: "cancel_invitation"
 end

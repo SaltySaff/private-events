@@ -21,6 +21,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @events = Event.all
+    @invitation = Invitation.new
   end
 
   def destroy
@@ -32,6 +34,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :body, :date)
+    params.require(:event).permit(:id, :title, :body, :date)
   end
 end

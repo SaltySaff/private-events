@@ -1,0 +1,20 @@
+<% if @event.invitees.include?(current_user) || @event.creator == current_user %>
+  <div class="box">
+    <strong><h2 class="title is-3"><%= @event.title %></h2></strong><br>
+    <strong>Creator:</strong> <%= @event.creator.username %><br><br>
+    <strong>Invited: </strong> <% @event.invitees.each do |invitee| %>
+      <%= invitee.username %>
+    <% end %><br>
+    <strong>Attending: </strong> <% @event.attendees.each do |attendee| %>
+      <%= attendee.username %>
+    <% end %>
+    <br><br>
+    <strong>When: </strong> <%= @event.date %><br><br>
+    <%= @event.body %><br><br>
+    <% if @events.future.include?(@event) %>
+      <%= render 'event_form' %>
+    <% end %>
+  </div>
+<% else %>
+  <p>You don't have permission to view this event.</p>
+<% end %>
