@@ -6,7 +6,9 @@
   <% end %>
   <% @user.attended_events.future.each do |event| %>
     <div class="box">
-      <strong><%= event.title %></strong>
+      <%= link_to event_path(event.id) do %>
+          <strong><%= event.title %></strong><br>
+      <% end %>
       <small>@<%= event.creator.username %></small><br>
       <small><strong>When:</strong> <%= event.date %></small><br>
       <%= event.body %>
