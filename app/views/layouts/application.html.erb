@@ -21,35 +21,35 @@
   			<p class="alert"><%= alert %></p>
   		</div>
   	<% end %>
-    <nav class="navbar is-primary">
+    <nav class="navbar is-dark">
   		<div class="navbar-brand">
 				<%= link_to root_path, class: "navbar-item" do %>
-					<h1 class="title is-5">Private Events</h1>
+					<h1 class="title is-5 has-text-white">Private Events</h1>
 				<% end %>
   	  </div>
-      <div id="navbarExample" class="navbar-menu">
+      <div id="navbarExample" class="navbar-menu is-active">
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link_to 'New Event', new_event_path, class: "button is-primary is-inverted" %>
+                  <%= link_to 'New Event', new_event_path, class: "button is-dark is-inverted" %>
                 </p>
                 <% if user_signed_in? %>
                   <p class="control">
-                    <%= link_to current_user.username, user_path(current_user.id), class: "button is-primary" %>
+                    <%= link_to current_user.username, user_path(current_user.id), class: "button is-dark" %>
                   </p>
                   <p class="control">
-                    <%= link_to "Settings", edit_user_registration_path, class: "button is-primary" %>
+                    <%= link_to "Settings", edit_user_registration_path, class: "button is-dark" %>
                   </p>
                   <p>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-primary" %>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-dark" %>
                   </p>
                 <% else %>
                 <p class="control">
-                  <%= link_to 'Sign In', new_user_session_path, class: "button is-primary" %>
+                  <%= link_to 'Sign In', new_user_session_path, class: "button is-dark" %>
                 </p>
                 <p class="control">
-                  <%= link_to 'Sign Up', new_user_registration_path, class: "button is-primary" %>
+                  <%= link_to 'Sign Up', new_user_registration_path, class: "button is-dark" %>
                 </p>
                 <% end %>
                 </div>

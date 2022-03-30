@@ -2,7 +2,7 @@
 <div class="field is-grouped">
   <% if current_user && @event.creator != current_user  && !@event.attendees.include?(current_user) %>
     <div class="control">
-      <%= link_to "Attend event", create_attending_event_path(:user_id => current_user.id, :id => @event.id), method: :post, class: "button is-primary" %>
+      <%= link_to "Attend event", create_attending_event_path(:user_id => current_user.id, :id => @event.id), method: :post, class: "button is-dark" %>
     </div>
   <% end %>
   <% if current_user == @event.creator %>
@@ -12,7 +12,7 @@
         <div class="select">
           <%= f.select :username, User.pluck(:username) %>
         </div>
-        <%= f.button :submit, class: "button is-primary" %>
+        <%= f.button :submit, class: "button is-dark" %>
       <% end %>
     </div>
   <% end %>
