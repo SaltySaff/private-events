@@ -36,7 +36,7 @@
                 </p>
                 <% if user_signed_in? %>
                   <p class="control">
-                    <%= link_to "Profile", user_path(current_user.id), class: "button is-primary" %>
+                    <%= link_to current_user.username, user_path(current_user.id), class: "button is-primary" %>
                   </p>
                   <p class="control">
                     <%= link_to "Settings", edit_user_registration_path, class: "button is-primary" %>

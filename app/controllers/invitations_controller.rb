@@ -12,15 +12,7 @@ class InvitationsController < ApplicationController
       @event.invitees << @invitee
       flash[:notice] = "Invited #{@invitee.username}"
     end
-    redirect_to root_path
-  end
-
-  def destroy
-    @event = Event.find(params[:id])
-    @invitee = User.find(params[:user_id])
-    @event.invitees.delete(@invitee)
-    flash[:alert] = "Deleted invitation to #{@invitee.username}."
-    redirect_to root_path
+    redirect_to @event
   end
 
   private
